@@ -1,0 +1,177 @@
+/* -If you want to learn JS then learn Objects and events then you are good on JAVA SCRIPT 
+ - There are 2 ways in which we can declare a object . 1 - Literal way 
+ 2. Constructor way
+ - when we declare in constructor way that time Singleton will be made.
+ - Object Literals example 
+ */
+
+ /*const JsUser = {} //Object literal ({}- this is the object)
+* {}- this is an empty object 
+inside object we put values in form of Keys and values.  
+System bydefault takes it as = "name" : "Hitesh" , 
+but if you will write it as = name : "Hitesh" it will automatically take as "name"
+so name is the key here and hitesh is the value here. */
+/* to  access it we can write it as */
+
+
+
+
+const JsUser = {
+name : "Hitesh",
+"fullName" : "Hitesh Choudhary",
+age : 18,
+location : "Jaipur",
+email : "hitesh@google.com",
+isLoggedIn : false,
+lastLoginDays : ["Monday", "Saturday"]
+}
+
+
+console.log(JsUser.email);// hitesh@google.com// In this way you can access it 
+console.log(JsUser["email"])//hitesh@google.com//in this way also you can access it 
+//but 
+//console.log(JsUser."fullName")- in this way you can't access it as it will through errors
+console.log(JsUser.fullName)//Hitesh Choudhary
+console.log(JsUser["fullName"])//Hitesh Choudhary
+
+
+
+How can you access symbols?
+
+-- Before accessing symbol , we have to know how to define a symbol , 
+and how to act it as a key inside an object 
+const mySym = Symbol ("key1") - Symbol we declare it like this and 
+put inside object as an array to show that it is an symbol 
+[mySym] : "myKey1", 
+to print the output we access it as = console.log(JsUser[mySym])//myKey1
+ (without double quotes as it is a symbol)
+ the output of this will be like : [Symbol(key1)] : 'myKey1'
+
+
+So we access object value using . notations 
+to change the value of the key of an object : 
+JsUser.email = "hitesh@chatgpt.com"
+How to lock  an object so that no one can change it . 
+Object.freeze(JsUser)// noone can touch it as this object has benn frezzed now. 
+After this freez  if you want to change any value of that object it will not reflect. 
+
+
+
+Objects also can be declared as = const tinderUser = new Object()(Here this Object() is the constructor)
+console.log(tinderUser); // this also will return an emptu object {}
+const tinderUser2 = {} , // this also returns the same . {}
+
+the only difference is 
+const tinderUser = new Object()// this is a single ton object
+const tinderUser2 = {} // this is a non singleton object 
+
+
+
+console.log(regularUser.userFullName.firstName)//hitesh(This is called as nexted chaining through which
+ you can access element inside elements of an object )
+
+console.log(regularUser.userFullName?.firstName)- Soem times we use this syntax when API is called. 
+
+
+we can also concat 2 object like below - 
+const obj1 = {1 : "a" , 2: "b"}
+const obj2 = {3 : "a", 4: "b"}
+const obj3 = {obj1 , obj2 }
+console.log(obj3);//{ obj1: { '1': 'a', '2': 'b' }, obj2: { '3': 'a', '4': 'b' } }
+
+const obj4 = Object.assign (obj1, obj2) //Object.assign() we use for better concate
+console.log(obj4);//{ '1': 'a', '2': 'b', '3': 'a', '4': 'b' }
+
+there is also another syntax of concating 2 object which is : 
+const obj1 = {1 : "a" , 2: "b"}
+const obj2 = {3 : "a", 4: "b"}
+const obj4 = {5 : "a", 6: "b"}
+const obj5 = Object.assign ({}, obj1, obj2, obj4)
+console.log(obj5)//{ '1': 'a', '2': 'b', '3': 'a', '4': 'b', '5': 'a', '6': 'b' }
+
+
+the most used syntax is spreading one for concat  : 
+const obj1 = {1 : "a" , 2: "b"}
+const obj2 = {3 : "a", 4: "b"}
+const obj3 = {...obj1, ...obj2}
+console.log(obj3)//{ '1': 'a', '2': 'b', '3': 'a', '4': 'b' }
+
+
+Accessing elements in Object : 
+const users = [
+    {
+    id : 1,
+    email : "h1@gmail.com"
+    },
+    {
+        id : 1,
+        email : "h2@gmail.com"
+    },
+    {
+        id : 1,
+        email : "h3@gmail.com"
+    }
+]
+console.log(users[1].email)// h2@gmail.com
+You can also access like these . it is mostly used in databases. 
+
+
+you can also access key and value pairs like below , Also we can use .entries and .hasOwnProperty to check the values 
+
+const tinderUser2 = {} // this is a non singleton object 
+tinderUser2.id = "123abc"
+tinderUser2.name = "sammy"
+tinderUser2.isLoggedIn= false
+console.log(tinderUser2);//{ id: '123abc', name: 'sammy', isLoggedIn: false }
+console.log(Object.keys(tinderUser2))//[ 'id', 'name', 'isLoggedIn' ]
+console.log(Object.values(tinderUser2));//[ '123abc', 'sammy', false ]
+// console.log(Object.entries(tinderUser2));//[ [ 'id', '123abc' ], [ 'name', 'sammy' ], [ 'isLoggedIn', false ] ]
+console.log(tinderUser2.hasOwnProperty('isLoggedIn'))//true
+console.log(tinderUser2.hasOwnProperty('isLogged'))//false
+
+
+
+//*****Destructuring of Object (We will see array destructuring in some other day )*****
+
+
+const course ={
+    courseName : "js in hindi",
+    price : "999",
+    courseInstructor : "hitesh"
+}
+
+const {courseInstructor} = course
+console.log(courseInstructor)//hitesh
+
+You can rename it also = 
+const {courseInstructor : instructor} = course
+console.log(instructor)
+
+// for react (instead of writting props.company people write {company} only )
+const navbar = ({company})=> {
+
+}
+navbar(company = "hitesh")
+
+API = apna kaam kisi aur ki sar pe dalna , is called API . Menucard of a resturant is an API documentation 
+API is nothing but you get some values from backend  and how you write those values. 
+earlier the values were coming in the form of xml , Now values are coming in the form of JSON 
+How JSON looks; = It is like an object but there is no name of the object . Also both key and values are in "" quotes
+Ex = 
+{
+    "name" : "hitesh",
+    "courseName" : "js in Hindi",
+    "price" : "free"
+}
+- this is JSON but not object . (JSON has no name like object. ), In JSON both Key and values will be in "" double quotes. 
+- Sometimes API also we get as an array format let's see how it looks. 
+[
+    {},
+    {},
+    {}
+]
+
+- inside array {} this is an object , So it is an combination of objects in a array 
+- API sometimes be as an object also sometimes be as an array of object. 
+
+- JSON formatter tool we use to understand the heavy JSON. format/Beautify- Tree view - 
