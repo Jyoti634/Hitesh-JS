@@ -1,0 +1,27 @@
+2 types of memory are there in JS - 
+
+1. Stack and 
+2. Heap 
+- Premitive data types mostly used in Stack memory
+- Non - premitive datatype mostly used in Heap Memory
+
+- When you use stack memory , whatever variables you have declared you will get a copy of that 
+- When you use heap memory , what ever variable you have declared , you will get a reference of original value.
+
+
+let myName= "Jyoti"
+let anotherName = myName
+anotherName= "Chaiaurcode"
+console.log(myName) //Jyoti
+console.log(anotherName)//Chaiaurcode
+
+
+let userOne = {
+    email : "user@google.com",
+    upi: "user@ybl"
+}
+let userTwo = userOne
+userTwo.email= "jyoti@google.com"
+console.log(userOne.email);//jyoti@google.com due to heap memory
+console.log(userTwo.email);//jyoti@google.com due to heap memory 
+
