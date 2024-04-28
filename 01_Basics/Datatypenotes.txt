@@ -1,0 +1,21 @@
+Data types in JS are of 2 types. 1. premitive, 2. non-premitive(Reference Typre)
+#premitive-
+It is call by value . 
+it is of 7 categories
+1. String 
+2. Number 
+3. Boolean
+4. null
+5. undefined
+6. Symbol
+7. BigInt
+#Non-Premitive(Reference type )
+1. Array
+2. Objects(Just cover object and browsers to be confident of JS ) 
+3. Functions 
+
+- Java script is a loosly typed language / or a dynamically typed language 
+- Javascript has a cousin brother which is type script - In that we have to mention the type of the
+   variable. Type script is a statically typed language. 
+- typeof is used to know the type of the variable. 
+
