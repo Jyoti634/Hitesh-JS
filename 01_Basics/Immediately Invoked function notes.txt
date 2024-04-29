@@ -4,5 +4,79 @@ jese hi apne function likha , use turant hi execute karwana he
 There are many ways to do it , and why we need this type of function which will execute immediately 
 sometimes , in some project there are some files in which we want database connection first 
 
-and so on uses . 
+and also sometimes in global scope some variables declared and some  functions are declared and
+ we don't want function ke andar that global variable creates some problem. 
+
+ so there are this 2 main reason are ,
+  we don't want global scope ki baje se function pollute ho that's why we make some scope which will
+  immediately invoked.
+ex => 
+function chai(){
+    console.log(`DB CONNECTED`);
+}
+chai()//DB CONNECTED
+
+- But int his there is no polution , But what is from global scope it starts polluting, 
+So to escape from that what we do let's see. 
+
+(function chai(){
+    console.log(`DB CONNECTED`);
+})()//DB CONNECTED
+
+
+Syntax of IIFE: 
+(Defination of function)(Execution of that function)
+
+Defination of IIFE- Some times problem occuers due to global scope ,
+ to get rid of that polution we use IIFE. 
+
+- Let's see how to write the IIFE as an arrow function 
+
+ex=>
+(function chai(){
+    console.log(`DB CONNECTED`);
+})()//DB CONNECTED
+
+(function aurcode(){
+    console.log(`DB CONNECTED TWO`)
+})()
+- This will through error because this immediately invoked function invoked quickly , 
+but it doesn;t know where to stop 
+due to which we have to explicitly stop it to start another IIFE.
+So for that we use semicolon (;) in between 2 function 
+to stop 1st function and start another function 
+
+
+(function chai(){
+    console.log(`DB CONNECTED`);
+})();//DB CONNECTED
+
+(function aurcode(){
+    console.log(`DB CONNECTED TWO`)
+})()// DB CONNECTED TWO  
+
+So similarly we use use this in arrow function also , 
+
+
+(() => {
+    console.log(`DB CONNECTED`);
+})();//DB CONNECTED
+
+(() => {
+    console.log(`DB CONNECTED TWO`)
+})()//DB CONNECTED TWO
+
+- But in this also we have to use semicolon in between the statement. 
+- We can also pass parameters in IIFE
+
+ex- (() => {
+    console.log(`DB CONNECTED`);
+})();//DB CONNECTED
+
+((name) => {
+    console.log(`DB CONNECTED TWO ${name}`);
+})("hitesh")//DB CONNECTED TWO hitesh
+
+
+
 
