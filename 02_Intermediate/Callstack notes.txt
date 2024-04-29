@@ -1,0 +1,8 @@
+Java script code runs mostly in 3 execution context fromw hich 2 we use mostly 
+1. Global Execution context
+2. Function Execution context
+3. Eval execution context(Used in mongoose)
+
+Memory creation phase - In this phase what ever you have declared only space will be allocated. 
+execution phase - in execution phase it will be executed. 
+
