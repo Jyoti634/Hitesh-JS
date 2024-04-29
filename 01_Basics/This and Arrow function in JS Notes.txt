@@ -1,0 +1,38 @@
+This keyword tells about current context
+
+const user ={
+    username:"hitesh",
+    price: 999,
+    welcomeMessage : function(){
+console.log(`${this.username} , welcome to website`)
+    }
+}
+- ${this.username} it helps you to get the current context  ,
+ but if you will write only `${username} it will  access but it is not the way to access it , You have to use this
+- this is because this can't be accessed inside a function only be accessed inside an object
+
+
+
+What is arrow function ? 
+-Syntax = () => {}
+
+-You can hold it using a name also . 
+const addTwo = (num1 , num2) => {
+    return num1 +num2
+}
+console.log(addTwo(3,4))//7
+- another way of representing arrow function is implicit return 
+
+const addTwo = (num1 , num2) =>  num1 +num2
+console.log(addTwo(3,4))//7 
+
+- if this also confuses you than do like this 
+if you wrap it inside {} then you have to use return keyword 
+but if you wrap it inside () , then no need to use return keyword  
+const addTwo = (num1 , num2) =>  (num1 +num2)
+console.log(addTwo(3,4))
+
+- but what if you want to print an object than you have to use parenthesis inside ()
+
+const addTwo = (num1 , num2) =>  ({username: "hitesh"})
+console.log(addTwo(3,4))//{ username: 'hitesh' }

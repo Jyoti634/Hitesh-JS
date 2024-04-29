@@ -1,0 +1,8 @@
+Immediately Invoked Function Expressions (IIFE)
+
+jese hi apne function likha , use turant hi execute karwana he 
+There are many ways to do it , and why we need this type of function which will execute immediately 
+sometimes , in some project there are some files in which we want database connection first 
+
+and so on uses . 
+

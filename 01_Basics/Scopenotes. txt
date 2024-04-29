@@ -1,0 +1,134 @@
+Scopes ki kahani start hoti he let , const , and var se. 
+
+let a = 10 
+const b = 20 
+var c = 30
+console.log(a)//10
+console.log(b)//20
+console.log(c)//30
+
+If three variables are working fine then why did this 3 came , one can come and handle in all place , but that is not correct . 
+It came due to block scope. {} - it is called as scope . 
+It is came with object , but that is not called scope , but when this comes with function or if else that time it is called scope 
+i.e scope of that program or function ka scope or if else ka scope. 
+if (true){
+    let a = 10  
+    const b = 20
+    var c= 30
+}
+console.log(a)// a is not defined because a we have declared insidea scope 
+console.log(b)//b is not defined  because b we have not returned and it is inside a scope
+console.log(c)//30 This is the problem, It should not came out of scope 
+- As there are so many programmers code in same project , who will give what values we don't know suppose one programmer declare c as 300 , 
+let's see 
+
+var c= 300
+if (true){
+    let a = 10  
+    const b = 20
+    var c= 30
+}
+
+console.log(c)// 30 but the value he has given as 300 , Also if you willl write it as 
+
+var c= 300
+if (true){
+    let a = 10  
+    const b = 20
+     c= 30
+}
+
+console.log(c)// 30 
+
+but he doen't know what the other person has given in the variable 
+So instead of var if he would have given let it will be fine 
+So var doesn't hold the value in that scope . 
+
+
+
+let c= 300
+if (true){
+    let a = 10  
+    const b = 20
+    var c= 30
+}
+
+console.log(c)//300 (it saves from lots of bug )
+
+
+let c= 300
+if (true){
+    let a = 10  
+    const b = 20
+    var c= 30
+    console.log("Inner: " , c) // 30
+}
+
+console.log(c)//300 
+
+what ever we have written inside if , it is called as block scope. 
+the outside what we are writting it is called as global scope. 
+whatever you will write in global scope , that value will be available inside block scope (if - else) 
+but whatever you write inside block scope  , that should not go outside. 
+
+
+similarly ,in for loop 
+for (let i = 0; i<array.length; i++){
+    const element = array[i];
+}
+in for loop we use let i because it should be available to that scope only . 
+if Bymistakely you write var or const , you will not want it will through error in whole program 
+
+
+browser inspect console  scope and program which run using node that scope is different
+
+
+Now lets see what is nested scope , and closures. 
+
+function one(){
+    const userName = "hitesh"
+    function two(){
+        const website = "youtube"
+        console.log(userName)
+    }
+    //console.log(website)// error because website scope was upto function two()
+    //two()//hitesh
+}
+one()//no output because two() nobody called , and inside one() there is 
+
+- nested function is a function in which one function is present inside another function. 
+- closures are like the inner function can access the variables the outside function 
+
+Similarly this thing happens inside if - else case also
+
+if(true){
+    const userName = "hitesh"
+    if(userName === "hitesh"){
+        const website = "youtube"
+        console.log( userName + website);
+    }
+    //console.log(website)// error it is scope based 
+}
+console.log(username)// can't access it because it's scope has been finished 
+
+Let's see another example 
+
+function addOne(num){
+    return num +1
+}
+addOne(5)
+const addTwo = function (num){
+    return num +2
+}
+addTwo(5)
+addOne and is a function but addTwo is an expression which is taking function 
+
+Let's see hoisting 
+console.log(addOne(5))//6
+function addOne(num){
+    return num +1
+}
+addTwo(5)//error because this is an expression which you can't access before declaring 
+const addTwo = function (num){
+    return num +2
+}
