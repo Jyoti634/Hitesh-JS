@@ -58,3 +58,48 @@ But just putting it in the box isn't enough to show it to everyone. You have to 
  undefinded is a false value in Java script 
  also empty string ("") is a false value 
   falsy values include undefined, null, false, 0, NaN, and an empty string ("")
+/*
+  function calculateCartPrice(num1){
+    return num1
+  }
+  console.log(calculateCartPrice(2));
+  */ This will return 2 but 
+  /*function calculateCartPrice(num1){
+    return num1
+  }
+  console.log(calculateCartPrice(200, 300, 400));
+  */this will return 200 , because if there are parameter is one ,
+   and you have passed more than one arguements than it will take the 1st argument only 
+
+
+So how can you take all the arguements ? 
+the way is you have to use res operator (...) tere is also a spread operator (...) both are symbolically same 
+but work wise differently use. 
+
+
+ function calculateCartPrice(...num1){
+    return num1
+ }
+ console.log(calculateCartPrice(200,400,500))//[ 200, 400, 500 ]
+it will return value as an array . This is mostly use in shopping cart 
+
+so now using this res operator you can pass any no of arguments in a single parameter. 
+
+
+ function calculateCartPrice(...num1){
+    return num1
+ }
+ console.log(calculateCartPrice(200,400,500, 600, 700, 8000))
+ // It will return //[ 200, 400, 500, 600, 700, 8000 ] 
+
+ let's see another example 
+  function calculateCartPrice(val1, val2 ...num1){
+    return num1
+ }
+ console.log(calculateCartPrice(200,400,500, 600))//[ 500, 600 ]
+ because val1 will take 200, val2 will take 400 so ...num1 will take [500, 600]
+
+ How to pass object in a function ? 
+
+
+ 
